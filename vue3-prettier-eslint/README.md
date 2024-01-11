@@ -1,25 +1,47 @@
 # vue3-prettier-eslint
 
-This template should help get you started developing with Vue 3 in Vite.
+[vue3项目搭建原文链接](https://www.jianshu.com/p/c9b130c0ba6a)、推荐使用 npm init vue@latest 方式构建。
 
-## Recommended IDE Setup
+perttier-eslint 项目构建时、选项集成prettier+eslint、无需手动安装依赖项.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+1. Prettier用于统一代码格式，它主要关注代码外观，例如缩进、换行、引号等.
+2. ESLint用于代码质量和规范，它主要可以检查代码错误，不良习惯和潜在问题.
 
-## Type Support for `.vue` Imports in TS
+## 配置vscode插件
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+1. 在vscode中安装Eslint、Prettier - Code formatter 插件
+2. 在vscode中将默认格式化插件设置成 Prettier - Code formatter
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## 配置如下图所示
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+<!-- ![Pandao editor.md](https://raw.githubusercontent.com/whiskyma/vue3-elementui/master/src/assets/images/1.png "Pandao editor.md") -->
 
-## Customize configuration
+![Pandao editor.md](https://img-blog.csdnimg.cn/8345b7c47fcc424890e1d600f91b8f7f.png 'Pandao editor.md')
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+在setttings.json文件中添加一些配置：
+
+```sh
+{
+  // vscode默认启用了根据文件类型自动设置tabsize的选项
+  "editor.detectIndentation": false,
+  // 重新设定tabsize
+  "editor.tabSize": 2,
+  // 每次保存的时候自动格式化
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    // 使用eslint来fix，包括格式化会自动fix和代码质量检查会给出错误提示
+    "source.fixAll.eslint": true
+  },
+  // 把prettier设置为vscode默认的代码格式化工具
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // vue文件的默认格式化工具选择prettier
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
+
+配置到这里当我们在vscode编辑器中保存代码时，就可以自动格式化代码了。(如果不配置，vscode保存代码则无效)
 
 ## Project Setup
 
