@@ -7,12 +7,12 @@ perttier-eslint 项目构建时、选项集成prettier+eslint、无需手动安�
 1. Prettier用于统一代码格式，它主要关注代码外观，例如缩进、换行、引号等.
 2. ESLint用于代码质量和规范，它主要可以检查代码错误，不良习惯和潜在问题.
 
-## 配置vscode插件
+### 配置vscode插件
 
 1. 在vscode中安装Eslint、Prettier - Code formatter 插件
 2. 在vscode中将默认格式化插件设置成 Prettier - Code formatter
 
-## 配置如下图所示
+### 配置如下图所示
 
 <!-- ![Pandao editor.md](https://raw.githubusercontent.com/whiskyma/vue3-elementui/master/src/assets/images/1.png "Pandao editor.md") -->
 
