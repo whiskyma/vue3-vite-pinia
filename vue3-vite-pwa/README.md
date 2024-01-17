@@ -1,25 +1,82 @@
 # vue3-vite-pwa
 
-This template should help get you started developing with Vue 3 in Vite.
+如果说项目需要配置pwa(离线缓存机制),则需要安装以下组件依赖。
 
-## Recommended IDE Setup
+1. [vite-plugin-pwa](https://blog.51cto.com/u_12603214/6155909)
+2. [workbox-window](https://cloud.tencent.com/developer/ask/sof/1290315)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+安装步骤如下：
 
 If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```sh
+pnpm install vite-plugin-pwa --save-dev
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+pnpm install workbox-window --save-dev
+```
 
-## Customize configuration
+### 配置如下图所示
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+![Pandao editor.md](
+![Pandao editor.md](https://raw.githubusercontent.com/whiskyma/vue3-vite-pinia/tree/main/vue3-vite-pwa/public/images/1.png 'Pandao editor.md')
+
+vite.config.ts 文件配置如下：
+
+````sh
+export default defineConfig({
+  plugins: [
+    vue(),
+    VitePWA({
+      manifest: {
+        name: 'pwa', // 安装应用后显示的应用名
+        description: 'pwa',
+        theme_color: '#ffffff',
+        // 至少配置一个图标
+        icons: [
+          {
+            // 注意如果应用不是部署在站点根目录则需要相对路径，图片文件放在项目/public/pwa/192x192.png
+            src: '/public/pwa/icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/public/pwa/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      },
+      registerType: 'autoUpdate',
+      workbox: {
+        // 缓存匹配所需的静态资源
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+      },
+      devOptions: {
+        enabled: true
+      }
+    })
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  }
+})
+``
+
+main.ts 文件配置如下：
+
+```sh
+import { registerSW } from 'virtual:pwa-register'
+const updateSW = registerSW({
+  onNeedRefresh() {
+    console.log(1)
+  },
+  onOfflineReady() {
+    console.log(2)
+  }
+})
+updateSW()
+````
 
 ## Project Setup
 
