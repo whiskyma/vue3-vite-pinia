@@ -7,7 +7,6 @@
 
 安装步骤如下：
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 ```sh
 pnpm install vite-plugin-pwa --save-dev
 
