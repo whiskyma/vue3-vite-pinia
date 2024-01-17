@@ -16,7 +16,7 @@ pnpm install workbox-window --save-dev
 ### 配置如下图所示
 
 ![Pandao editor.md](
-![Pandao editor.md](https://raw.githubusercontent.com/whiskyma/vue3-vite-pinia/tree/main/vue3-vite-pwa/public/images/1.png 'Pandao editor.md')
+![Pandao editor.md](https://raw.githubusercontent.com/whiskyma/vue3-vite-pinia/main/vue3-vite-pwa/public/images/1.png 'Pandao editor.md')
 
 vite.config.ts 文件配置如下：
 
