@@ -9,7 +9,7 @@ export default defineConfig({
     vue(),
     VitePWA({
       manifest: {
-        name: 'pwa', // 安装应用后显示的应用名
+        name: '安装应用', // 安装应用后显示的应用名
         description: 'pwa',
         theme_color: '#ffffff',
         // 至少配置一个图标
