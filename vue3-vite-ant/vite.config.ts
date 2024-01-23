@@ -46,7 +46,8 @@ export default defineConfig({
       '@styl': resolve(__dirname, 'src/components/assets/styl'),
       '@views': resolve(__dirname, 'src/views'),
       '@router': resolve(__dirname, 'src/router'),
-      // '@store': resolve(__dirname, 'src/store'),
+      '@store': resolve(__dirname, 'src/store'),
+      '@js': resolve(__dirname, 'src/utils'),
     },
     extensions: ['.ts', '.js', '.mjs', '.jsx', '.tsx', '.json', '.vue'], //省略扩展名
   },

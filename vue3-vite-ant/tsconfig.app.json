@@ -13,7 +13,9 @@
       "@img/*": ["./src/components/assets/img/*"],
       "@styl/*": ["./src/components/assets/styl/*"],
       "@views/*": ["./src/views/*"],
-      "@router/*": ["./src/router/*"]
+      "@router/*": ["./src/router/*"],
+      "@store/*": ["./src/store/*"],
+      "@js/*": ["./src/js/*"]
     }
   }
 }
