@@ -1,0 +1,215 @@
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.zoomIn {
+  animation: zoomIn 0.3s ease-in-out;
+  animation-fill-mode: forwards; /* 动画结束后保持最终状态 */
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.zoomOut {
+  animation: zoomOut 0.3s ease-in-out;
+  animation-fill-mode: forwards; /* 动画结束后保持最终状态 */
+}
+
+//
+@keyframes slideUp {
+  0% {
+    transform: translateY(40px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideUp2 {
+  0% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
+
+.slideUp2 {
+  animation: slideUp2 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale-up-1 {
+  0% {
+    transform: scale(1); /* 初始大小为 1 */
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 应用动画到元素 */
+.scale-up-1 {
+  animation-name: scale-up-1; /* 使用 'scale-up-1' 动画 */
+  animation-duration: 0.2s; /* 动画持续时间为 0.2 秒 */
+  //animation-fill-mode: forwards; /* 动画结束后保持最终状态 */
+}
+
+// transtion 配合样式 <transition name="slide" ...
+.slide-enter-from,
+.slide-leave-to {
+  transform: translate3d(0, 200px, 0);
+}
+
+.slide-enter-to,
+.slide-leave-from {
+  transform: translate3d(0, 0, 0);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 150ms ease-in-out;
+}
+
+//
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+// 先放大后缩小
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+.hvr-pop {
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  &:hover {
+    animation-name: hvr-pop;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+}
+
+// 放大
+.hvr-grow {
+  transform: perspective(1px) translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 10px #f7e7c9;
+  }
+}
+
+// 向上放大 底部阴影
+.hvr-up-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  &::before {
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
+  }
+  &:hover {
+    transform: translateY(-10px);
+  }
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+// 旋转
+.hvr-rotate {
+  transition: all 0.3s;
+  &:hover {
+    transform: rotate(120deg);
+  }
+}
