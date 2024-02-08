@@ -8,7 +8,7 @@ import router from './router'
 
 // 引入样式和公共js
 // import '@styl/app'
-import '@js/main'
+import '@js/app'
 
 const app = createApp(App)
 

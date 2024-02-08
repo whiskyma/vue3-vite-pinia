@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
+import { setDocTitle } from '@/utils/com'
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: '首页', component: () => import('@views/home/home.vue') },
@@ -11,5 +12,17 @@ const router = createRouter({
   // createWebHistory 地址栏不带#号
   history: createWebHashHistory(),
   routes: routes,
+})
+
+// 路由守卫
+router.beforeEach((to, from, next) => {
+  console.log(to.name)
+  if (!to.matched.length) {
+    next('/404')
+  } else {
+    next()
+  }
+  // setDocTitle(to.name)
+  // document.title = to.name
 })
 export default router

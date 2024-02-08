@@ -1,5 +1,6 @@
 import { registerSW } from 'virtual:pwa-register'
-import router from '@router/index'
+// import router from '@router/index'
+
 // registerSW---WPA全局注册事件
 const updateSW = registerSW({
   onNeedRefresh() {
@@ -11,11 +12,11 @@ const updateSW = registerSW({
 })
 updateSW()
 
-// 添加全局的404页面处理逻辑
-router.beforeEach((to, from, next) => {
-  if (!to.matched.length) {
-    next('/404')
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   console.log(to.name)
+//   if (!to.matched.length) {
+//     next('/404')
+//   } else {
+//     next()
+//   }
+// })
