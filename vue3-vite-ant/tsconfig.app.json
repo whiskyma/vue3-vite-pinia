@@ -5,13 +5,13 @@
   "compilerOptions": {
     "composite": true,
     "noEmit": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
       "@comp/*": ["./src/components/*"],
-      "@assets/*": ["./src/components/assets/*"],
-      "@img/*": ["./src/components/assets/img/*"],
-      "@styl/*": ["./src/components/assets/styl/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@img/*": ["./src/assets/img/*"],
+      "@style/*": ["./src/assets/style/*"],
       "@views/*": ["./src/views/*"],
       "@router/*": ["./src/router/*"],
       "@store/*": ["./src/store/*"],

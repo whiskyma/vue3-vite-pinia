@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
-import { setDocTitle } from '@/utils/com'
+import { setDocTitle } from '@js/com'
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: '首页', component: () => import('@views/home/home.vue') },
@@ -12,17 +12,18 @@ const router = createRouter({
   // createWebHistory 地址栏不带#号
   history: createWebHashHistory(),
   routes: routes,
+  linkActiveClass: 'active',
+  linkExactActiveClass: 'active',
 })
-
 // 路由守卫
 router.beforeEach((to, from, next) => {
-  console.log(to.name)
+  // 将页面滚动至顶部位置
+  window.scrollTo(0, 0)
   if (!to.matched.length) {
     next('/404')
   } else {
     next()
   }
-  // setDocTitle(to.name)
-  // document.title = to.name
+  if (to.name) setDocTitle(to.name.toString())
 })
 export default router

@@ -1,7 +1,4 @@
-<script lang="ts" setup>
-import { setDocTitle } from '@/utils/com'
-setDocTitle('阿斯顿')
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <div>啥地方</div>

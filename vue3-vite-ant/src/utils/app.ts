@@ -11,7 +11,7 @@ const updateSW = registerSW({
   },
 })
 updateSW()
-
+console.log(123)
 // router.beforeEach((to, from, next) => {
 //   console.log(to.name)
 //   if (!to.matched.length) {

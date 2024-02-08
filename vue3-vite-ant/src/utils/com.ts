@@ -1,3 +1,3 @@
 export const setDocTitle = (title: string) => {
-  document.title = title
+  if (title) document.title = title
 }
