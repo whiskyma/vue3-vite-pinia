@@ -41,15 +41,15 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src'),
       '@comp': resolve(__dirname, 'src/components'),
-      '@assets': resolve(__dirname, 'src/components/assets'),
-      '@img': resolve(__dirname, 'src/components/assets/img'),
-      '@styl': resolve(__dirname, 'src/components/assets/styl'),
+      '@assets': resolve(__dirname, 'src/assets'),
+      '@img': resolve(__dirname, 'src/assets/img'),
+      '@style': resolve(__dirname, 'src/assets/style'),
       '@views': resolve(__dirname, 'src/views'),
       '@router': resolve(__dirname, 'src/router'),
       '@store': resolve(__dirname, 'src/store'),
       '@js': resolve(__dirname, 'src/utils'),
     },
-    extensions: ['.ts', '.js', '.mjs', '.jsx', '.tsx', '.json', '.vue'], //省略扩展名
+    extensions: ['.ts', '.js', '.mjs', '.jsx', '.tsx', '.json', '.vue', '.scss', '.styl'], //省略扩展名
   },
   server: {
     port: 2023,
