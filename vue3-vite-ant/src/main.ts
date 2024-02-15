@@ -1,4 +1,5 @@
 // 引入样式和公共js
+import 'uno.css' //引入uno.css库
 import '@style/common'
 import '@js/app'
 

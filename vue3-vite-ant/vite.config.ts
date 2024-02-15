@@ -2,10 +2,12 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
+import UnoCSS from 'unocss/vite'
 
 export default defineConfig({
   plugins: [
     vue(),
+    UnoCSS(),
     VitePWA({
       manifest: {
         name: '安装应用', // 安装应用后显示的应用名
